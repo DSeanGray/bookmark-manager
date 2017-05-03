@@ -7,10 +7,10 @@ gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'rack', '<2.0'
-
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'launchy'
+gem 'heroku'
 
 group :test do
   gem 'capybara'
