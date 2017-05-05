@@ -47,7 +47,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   helpers do
-    def curent_user
+    def current_user
       @current_user ||= User.get(session[:user_id])
     end
   end
