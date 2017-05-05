@@ -8,7 +8,7 @@ class BookmarkManager < Sinatra::Base
   enable :sessions
 
   get '/' do
-
+    redirect '/links'
   end
 
   get '/links' do
@@ -22,8 +22,9 @@ class BookmarkManager < Sinatra::Base
 
   post '/links' do
     link = Link.create(url: params[:url], title: params[:title])
-    tag = Tag.first_or_create(name: params[:tags])
-    link.tags << tag
+     params[:tags].split.each do |tag|
+       link.tags << Tag.first_or_create(name: tag)
+    end
     link.save
     redirect '/links'
   end
